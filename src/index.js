@@ -6,7 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 //axios.defaults.baseURL = 'https://pixabay.com/api/';
 
-
+// Zmienne DOM
 const form = document.querySelector('form#search-form');
 const gallery = document.querySelector('div.gallery');
 const searchButton = document.querySelector(`button[type="submit"]`);
@@ -17,9 +17,7 @@ const loadMoreButton = document.querySelector('button.load-more');
 form.addEventListener('submit', searchImage);
 loadMoreButton.addEventListener('click', loadMoreImages);
 
-
 // Zmienne
-
 const API_KEY = '29707791-ff65a0300987a99cb660f7261';
 const per_page = 40;
 let page = 1;
@@ -29,22 +27,15 @@ let lightbox = new simpleLightbox('.gallery a')
 // const URL = 'https://pixabay.com/api/'
 
 
-
-
-
-
 const fetchPixabay = async (query, page) => {
-    
-  const response = await axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&per_page=${per_page}&page=${page}`)
-    
-          
+    const response = await axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&per_page=${per_page}&page=${page}`)
     return response;
 };
 
 function renderItems(images) {
-  let markup = images
-    .map(image => {
-      const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image
+    let markup = images
+        .map(image => {
+            const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image
       
 
    return   `<a class="img_card" href='${largeImageURL}'> 

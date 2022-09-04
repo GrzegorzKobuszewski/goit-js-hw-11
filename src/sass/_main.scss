@@ -21,7 +21,7 @@ a {
   background-color: #000000;
   display: block;
   text-align: center;
-  height: 50px;
+  height: 60px;
   padding: 10px;
 }
 
@@ -31,7 +31,7 @@ a {
 }
 
 #search-form {
-  border-radius: 10px;
+  border-radius: 2px;
   font: inherit;
   display: inline-block;
   margin-left: auto;
@@ -63,7 +63,6 @@ li {
   padding: 10px; 
   display: flex;
 }
-
 
 .image {
   width: 350px;
