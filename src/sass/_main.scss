@@ -19,7 +19,7 @@ a {
 
 .form {
   margin-top: 0px;
-  background-color: #00008B;
+  background-color: #000000;
 display: block;
 text-align: center;
 height: 50px;
@@ -83,7 +83,7 @@ display: flex;
   border: none;
   width: 180px;
   height: 50px;
-  background-color: #00008B;
+  background-color: #000000;
   color: #fafafa;
   cursor: pointer;
   border-radius: 5px;
@@ -99,7 +99,7 @@ display: flex;
 .load-more:hover
 
 {
-  background-color: green;
+  background-color: blue;
   opacity: 0.8;
   transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -122,7 +122,6 @@ display: none;
 
 .image:hover,
 .image:focus {
-    opacity: 0.8;
     
     transform: scale(1.1);
     transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -180,7 +179,6 @@ display: none;
 }
 .search-button:hover, 
   .search-button:focus{
-  opacity: 0.9;
   transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
