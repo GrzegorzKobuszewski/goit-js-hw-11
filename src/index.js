@@ -1,4 +1,4 @@
-import './sass/index.scss';
+import '../css/style.css';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import simpleLightbox from 'simplelightbox';
