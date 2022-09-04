@@ -1,4 +1,4 @@
-import './sass/index.scss';
+import './css/styles.css';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import simpleLightbox from 'simplelightbox';
@@ -6,50 +6,36 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 //axios.defaults.baseURL = 'https://pixabay.com/api/';
 
-
-/*
+// Zmienne DOM
 const form = document.querySelector('form#search-form');
 const gallery = document.querySelector('div.gallery');
 const searchButton = document.querySelector(`button[type="submit"]`);
+//const searchButton = document.querySelector(".search-button");
 const loadMoreButton = document.querySelector('button.load-more');
+//const loadMoreButton = document.querySelector('.load-more');
 
 form.addEventListener('submit', searchImage);
 loadMoreButton.addEventListener('click', loadMoreImages);
 
-
 // Zmienne
-
 const API_KEY = '29707791-ff65a0300987a99cb660f7261';
-const perPage = 40;
+const per_page = 40;
 let page = 1;
 let query = '';
 let lightbox = new simpleLightbox('.gallery a')
-*/
 
-
-const API_KEY = '29707791-ff65a0300987a99cb660f7261';
- const form = document.querySelector(".search-form");
-// const word = document.querySelector('.word').value
-const gallery = document.querySelector(".gallery");
-const searchButton = document.querySelector(".search-button");
-let page = 1;
-const per_page = 40;
-const lightbox = new SimpleLightbox('.gallery a');
-const loadMoreBtn = document.querySelector('.load-more');
-let query = ''
 // const URL = 'https://pixabay.com/api/'
+
+
 const fetchPixabay = async (query, page) => {
-    
-  const response = await axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&per_page=${per_page}&page=${page}`)
-    
-          
+    const response = await axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=photo&orientation=horizontal&per_page=${per_page}&page=${page}`)
     return response;
 };
 
 function renderItems(images) {
-  let markup = images
-    .map(image => {
-      const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image
+    let markup = images
+        .map(image => {
+            const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image
       
 
    return   `<a class="img_card" href='${largeImageURL}'> 
@@ -78,7 +64,7 @@ function renderItems(images) {
 
 
 
-loadMoreBtn.addEventListener('click', onLoadMoreBtn)
+loadMoreButton.addEventListener('click', onloadMoreButton)
 
 form.addEventListener('submit', searchForm)
 //   e.preventDefault();
@@ -92,7 +78,7 @@ form.addEventListener('submit', searchForm)
 //   }
 
 //   gallery.innerHTML = '';
-//    loadMoreBtn.classList.add('is-hidden')
+//    loadMoreButton.classList.add('is-hidden')
 //     try {
       
 //       const photos = await fetchPixabay(query, page)
@@ -126,7 +112,7 @@ form.addEventListener('submit', searchForm)
         return;
         }
             gallery.innerHTML = '';
-            loadMoreBtn.classList.add('is-hidden')
+            loadMoreButton.classList.add('is-hidden')
     
                   
     const images = await fetchPixabay(query, page)
@@ -149,7 +135,7 @@ catch (error) {
 
  
 
-  async function onLoadMoreBtn() {
+  async function onloadMoreButton() {
     page +=1
     try {
       const images = await fetchPixabay(query, page)
@@ -157,7 +143,7 @@ catch (error) {
       renderItems(data.hits)
       lightbox.refresh();
       onSearchNotification(data)
-      loadMoreBtn.classList.add('is-hidden')
+      loadMoreButton.classList.add('is-hidden')
     }
     catch(error) {
       console.log(error)
@@ -168,7 +154,7 @@ catch (error) {
 const totalPages = Math.ceil(data.totalHits / per_page);
 if (page >= totalPages) {
   
-  loadMoreBtn.classList.add('is-hidden')
+  loadMoreButton.classList.add('is-hidden')
   Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.")
   return
 }
@@ -177,7 +163,7 @@ Notiflix.Notify.failure('Sorry, there are no images matching your search query. 
 
 // } if (data.totalHits >= per_page) {
 
-//   loadMoreBtn.classList.remove('is-hidden')
+//   loadMoreButton.classList.remove('is-hidden')
 //  }
 
   }
@@ -185,10 +171,10 @@ Notiflix.Notify.failure('Sorry, there are no images matching your search query. 
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         // you're at the bottom of the page
         console.log('end of page')
-        loadMoreBtn.classList.remove('is-hidden')
+        loadMoreButton.classList.remove('is-hidden')
     } else
     {
-      loadMoreBtn.classList.add('is-hidden')
+      loadMoreButton.classList.add('is-hidden')
     }
 };
 
