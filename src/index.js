@@ -4,10 +4,14 @@ import axios from 'axios';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+
+const input = document.querySelector('.search-input');
+const inputButton = document.querySelector('.search-button');
+const form = document.querySelector('.search-form');
+
 const gallery = document.querySelector('.gallery');
-const input = document.querySelector('.search_input');
-const inputButton = document.querySelector('.search_button');
-const loadMoreButton = document.querySelector('.load-more');
+const loadMoreButton = document.querySelector('.load-more-button');
+
 
 // Właściwości zdjęć i galerii
 const API = '29707791-ff65a0300987a99cb660f7261';
