@@ -94,7 +94,7 @@ async function searchForm(e) {
   catch (error) {
     gallery.innerHTML = '';
     console.log(error);
-  };
+  }
 }
 
 
@@ -115,7 +115,9 @@ async function onloadMoreButton() {
 
 
 function onSearchNotification(data) {
+
   const totalPages = Math.ceil(data.totalHits / per_page);
+
   if (page >= totalPages) {
     loadMoreButton.classList.add('is-hidden');
     Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.")
@@ -135,4 +137,6 @@ function onSearchNotification(data) {
       loadMoreButton.classList.add('is-hidden')
     }
   }
+  
 }
+

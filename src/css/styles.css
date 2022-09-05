@@ -120,11 +120,6 @@ button:target {
   display: none;
 }
 
-/* .btn-to-top--vissible{
-  opacity: 0;
-  visibility: hidden;
-} */
-
 .img_card{
   position: relative;
 }
