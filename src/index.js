@@ -1,13 +1,13 @@
 import Notiflix from 'notiflix';
 import axios from 'axios';
-//import debounce from 'lodash';
+import debounce from 'lodash.debounce';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 
+const form = document.querySelector('.search-form');
 const input = document.querySelector('.search-input');
 const inputButton = document.querySelector('.search-button');
-const form = document.querySelector('.search-form');
 
 const gallery = document.querySelector('.gallery');
 const loadMoreButton = document.querySelector('.load-more-button');
@@ -22,7 +22,7 @@ const safeSearch = true;
 const perPage = 40;
 let page = 1;
 
-const lightbox = new SimpleLightbox('.gallery a');
+const lightbox = new simpleLightbox('.gallery a');
 
 
 loadMoreButton.setAttribute('hidden', 'hidden');
@@ -79,6 +79,8 @@ inputButton.addEventListener('click', async event => {
   page = 1;
   const inputValue = input.value.trim();
 
+  localStorage.setItem('inputValue', `${inputValue}`); //Przechowanie w pamięci wartości inputValue
+
   try {
     const array = await fetchImages(inputValue, page);
     const arrayImages = [];
@@ -106,6 +108,8 @@ inputButton.addEventListener('click', async event => {
   }
 });
 
+// Przycisk ładowania większej liczby obrazów - WYŁĄCZONY
+
 loadMoreButton.addEventListener('click', async () => {
   const inputValue = input.value.trim();
   try {
@@ -121,3 +125,36 @@ loadMoreButton.addEventListener('click', async () => {
     console.log(error.message);
   }
 });
+
+
+// Dodatkowa funkcja na płynne przewijanie 
+
+window.addEventListener('scroll',
+  debounce (async () => {
+    try {
+      if (window.innerHeight === document.documentElement.scrollHeight) {
+        return;
+      }
+      if (window.scrollY + 0.5 + window.innerHeight >= document.documentElement.scrollHeight) {
+
+        page += 1;
+        let trimInput = localStorage.getItem('inputValue');
+        const varPhotos = await fetchImages(trimInput, page);
+        const photosArr = varPhotos.hits;
+
+        renderImages(photosArr);
+        lightbox.refresh();
+
+        const { height: cardHeight } = document
+          .querySelector('.gallery')
+          .firstElementChild.getBoundingClientRect();
+        
+        window.scrollBy({
+          top: cardHeight * 2,
+          behavior: 'smooth',
+        });
+
+      }
+    } catch (error) {}
+  }, 1000)
+);
