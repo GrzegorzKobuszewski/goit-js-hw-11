@@ -22,7 +22,7 @@ const API_KEY = '29707791-ff65a0300987a99cb660f7261';
 const per_page = 40;
 let page = 1;
 let query = '';
-let lightbox = new simpleLightbox('.gallery a')
+let lightbox = new simpleLightbox('.gallery a');
 
 // const URL = 'https://pixabay.com/api/'
 
@@ -126,12 +126,13 @@ function onSearchNotification(data) {
     Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.')
   }
 
-window.onscroll = function(ev) {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  window.onscroll = function (ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       // you're at the bottom of the page
       console.log('end of page')
       loadMoreButton.classList.remove('is-hidden')
-  } else {
-    loadMoreButton.classList.add('is-hidden')
+    } else {
+      loadMoreButton.classList.add('is-hidden')
+    }
   }
 }
