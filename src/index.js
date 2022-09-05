@@ -69,7 +69,7 @@ const renderImages = images => {
 };
 
 
-inputButton.addEventListener('click', async event => {
+inputButton.addEventListener('submit', async event => {
   event.preventDefault();
 
   page = 1;
