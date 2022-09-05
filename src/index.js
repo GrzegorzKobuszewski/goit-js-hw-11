@@ -128,7 +128,7 @@ function onSearchNotification(data) {
     Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.')
   }
 
-  window.onscroll = function (ev) {
+  window.onscroll = function () {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       // you're at the bottom of the page
       console.log('end of page')
@@ -137,6 +137,5 @@ function onSearchNotification(data) {
       loadMoreButton.classList.add('is-hidden')
     }
   }
-  
 }
 
