@@ -6,7 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const gallery = document.querySelector('.gallery');
 const input = document.querySelector('.search_input');
-const inputButton = document.querySelector('.search_btn');
+const inputButton = document.querySelector('.search_button');
 const loadMoreButton = document.querySelector('.load-more');
 
 // Właściwości zdjęć i galerii
@@ -69,7 +69,7 @@ const renderImages = images => {
 };
 
 
-inputButton.addEventListener('submit', async event => {
+inputButton.addEventListener('click', async event => {
   event.preventDefault();
 
   page = 1;
