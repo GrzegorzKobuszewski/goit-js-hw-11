@@ -156,5 +156,5 @@ window.addEventListener('scroll',
 
       }
     } catch (error) {}
-  }, 1000)
+  }, 2000)
 );
