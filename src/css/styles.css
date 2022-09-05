@@ -46,12 +46,10 @@ a {
 input,
 button {
   border: none;
-
   outline: none;
+  font-size: 16px;
   border-radius: 10px;
-  margin-left: -20px;
   background-color: #fff;
-  font-size: 20px;
   padding: 10px 15px;
   cursor: pointer;
 
@@ -59,16 +57,16 @@ button {
 
 button {
   background-color: #b5bddc;
-  font-size: 20px;
   z-index: 6;
-  border-radius: 0px 10px 10px 0px;
+  border-radius: 10px 10px 10px 10px;
+  margin-left: 20px;
 }
 
 button:hover,
 button:target {
   color: #fff;
   background-color: #000;
-  border-radius: 10px 10px 10px 10px;
+  
   z-index: 10;
 }
 
@@ -175,4 +173,3 @@ button:target {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
-
