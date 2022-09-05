@@ -37,9 +37,8 @@ function renderItems(images) {
         .map(image => {
             const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image
       
-
-   return   `<a class="img_card" href='${largeImageURL}'> 
-       <div class="photo-card" id= "${id}"> 
+    return   `<a class="img_card" href='${largeImageURL}'> 
+      <div class="photo-card" id= "${id}"> 
       <img class="image" src="${webformatURL}" alt="${tags}" loading="lazy" /> 
       <div class="info">
         <p class="info-item">
