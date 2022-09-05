@@ -76,10 +76,16 @@ img {
   max-width: 1560px;
 }
 
-.load-more {
+.load-more-button {
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 12px 24px;
   font-size: 24px;
+}
+
+.go-top-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
